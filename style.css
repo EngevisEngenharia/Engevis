@@ -20,7 +20,7 @@ body {
    HEADER E MENU FIXO
 ========================= */
 header {
-  background: url("../images/capa.jpg") center/cover no-repeat;
+  background: url("images/capa.jpg") center/cover no-repeat;
   color: white;
   padding: 120px 20px 80px 20px;
   text-align: center;
@@ -176,4 +176,5 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
 
