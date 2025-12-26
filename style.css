@@ -108,13 +108,61 @@ img {
 }
 
 /* ==============================
+   RESET BÁSICO PARA MENUS
+================================ */
+.nav-menu,
+.dropdown-menu {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+/* ==============================
+   HEADER / NAVEGAÇÃO
+================================ */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(11, 16, 32, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 15px 0;
+  border-bottom: 1px solid rgba(31, 79, 216, 0.1);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ==============================
+   LOGO
+================================ */
+.logo-link {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 80px;
+  height: auto;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+/* ==============================
    MENU PRINCIPAL
 ================================ */
 .nav-menu {
   display: flex;
-  list-style: none;
-  gap: 40px;
   align-items: center;
+  gap: 40px;
 }
 
 .nav-menu li {
@@ -124,12 +172,13 @@ img {
 .nav-menu a {
   font-weight: 500;
   font-size: 0.95rem;
+  color: var(--branco);
   position: relative;
   padding: 5px 0;
-  color: var(--branco);
   display: flex;
   align-items: center;
   gap: 6px;
+  text-decoration: none;
 }
 
 /* Linha animada */
@@ -173,7 +222,7 @@ img {
 }
 
 /* ==============================
-   DROPDOWN ATUAÇÃO
+   DROPDOWN (ATUAÇÃO)
 ================================ */
 .dropdown-menu {
   position: absolute;
@@ -202,12 +251,16 @@ img {
   color: var(--branco);
 }
 
+.dropdown-menu a::after {
+  display: none;
+}
+
 .dropdown-menu a:hover {
   background-color: rgba(255, 255, 255, 0.05);
   color: var(--amarelo);
 }
 
-/* Hover Desktop */
+/* Hover desktop */
 .dropdown:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
@@ -289,6 +342,7 @@ img {
     padding: 12px;
   }
 }
+
 
 
 /* ==============================
@@ -912,6 +966,7 @@ section {
     font-size: 0.8rem;
   }
 }
+
 
 
 
