@@ -502,81 +502,35 @@ section {
 }
 
 /* ==============================
-   CARDS DE ATUAÇÃO
+   RISQUINHO AMARELO - ÁREAS DE ATUAÇÃO
 ================================ */
-.atuacao {
-  background-color: var(--azul-escuro);
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
-  margin-top: 50px;
-}
-
-.card {
-  background-color: var(--azul-card);
-  padding: 40px 30px;
-  border-radius: 8px;
-  transition: all 0.4s ease;
+.atuacao .card h3 {
   position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(31, 79, 216, 0.1);
+  display: inline-block; /* permite que o risquinho acompanhe o texto */
+  padding-bottom: 5px;   /* espaço para o risquinho */
+  transition: color 0.3s ease;
+  cursor: pointer;
 }
 
-.card::before {
+.atuacao .card h3::after {
   content: '';
   position: absolute;
-  top: 0;
   left: 0;
-  width: 100%;
-  height: 4px;
+  bottom: 0;
+  width: 0;
+  height: 2px;
   background-color: var(--amarelo);
-  transform: scaleX(0);
-  transition: transform 0.4s ease;
+  transition: width 0.3s ease;
 }
 
-.card:hover {
-  transform: translateY(-10px);
-  background-color: var(--azul-card-hover);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+.atuacao .card h3:hover::after {
+  width: 100%;
 }
 
-.card:hover::before {
-  transform: scaleX(1);
-}
-
-.card-icon {
-  font-size: 2.5rem;
+.atuacao .card h3:hover {
   color: var(--amarelo);
-  margin-bottom: 20px;
 }
 
-.card h3 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  margin-bottom: 15px;
-  color: var(--branco);
-}
-
-.card p {
-  color: var(--cinza);
-  margin-bottom: 25px;
-  line-height: 1.7;
-}
-
-.card-link {
-  color: var(--amarelo);
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.card-link:hover {
-  gap: 15px;
-}
 
 /* ==============================
    TRANSIÇÃO ENERGÉTICA
@@ -968,6 +922,7 @@ section {
     font-size: 0.8rem;
   }
 }
+
 
 
 
