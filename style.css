@@ -107,10 +107,18 @@ img {
   transform: scale(1.05);
 }
 
+/* ==============================
+   MENU PRINCIPAL
+================================ */
 .nav-menu {
   display: flex;
   list-style: none;
   gap: 40px;
+  align-items: center;
+}
+
+.nav-menu li {
+  position: relative;
 }
 
 .nav-menu a {
@@ -118,12 +126,17 @@ img {
   font-size: 0.95rem;
   position: relative;
   padding: 5px 0;
+  color: var(--branco);
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
+/* Linha animada */
 .nav-menu a::after {
   content: '';
   position: absolute;
-  bottom: 0;
+  bottom: -4px;
   left: 0;
   width: 0;
   height: 2px;
@@ -139,6 +152,9 @@ img {
   color: var(--amarelo);
 }
 
+/* ==============================
+   BOTÃO CONTATO
+================================ */
 .nav-btn {
   background-color: var(--amarelo);
   color: var(--azul-base) !important;
@@ -156,6 +172,51 @@ img {
   display: none !important;
 }
 
+/* ==============================
+   DROPDOWN ATUAÇÃO
+================================ */
+.dropdown-menu {
+  position: absolute;
+  top: 140%;
+  left: 0;
+  background-color: rgba(11, 16, 32, 0.98);
+  min-width: 280px;
+  padding: 15px 0;
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.dropdown-menu li {
+  width: 100%;
+}
+
+.dropdown-menu a {
+  padding: 10px 20px;
+  width: 100%;
+  font-size: 0.9rem;
+  color: var(--branco);
+}
+
+.dropdown-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--amarelo);
+}
+
+/* Hover Desktop */
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ==============================
+   HAMBURGER
+================================ */
 .hamburger {
   display: none;
   cursor: pointer;
@@ -169,6 +230,66 @@ img {
   background-color: var(--branco);
   transition: all 0.3s ease;
 }
+
+/* ==============================
+   MOBILE
+================================ */
+@media (max-width: 900px) {
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: rgba(11, 16, 32, 0.98);
+    flex-direction: column;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    gap: 0;
+    transition: max-height 0.4s ease;
+  }
+
+  .nav-menu.active {
+    max-height: 500px;
+  }
+
+  .nav-menu li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-menu a {
+    padding: 15px;
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Dropdown no mobile */
+  .dropdown-menu {
+    position: static;
+    box-shadow: none;
+    background: transparent;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0;
+  }
+
+  .dropdown.active .dropdown-menu {
+    max-height: 500px;
+  }
+
+  .dropdown-menu a {
+    padding: 12px;
+  }
+}
+
 
 /* ==============================
    HERO SECTION
@@ -791,6 +912,7 @@ section {
     font-size: 0.8rem;
   }
 }
+
 
 
 
