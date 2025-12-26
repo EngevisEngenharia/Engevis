@@ -134,7 +134,7 @@ img {
   text-decoration: none;
 }
 
-/* Linha animada APENAS no menu principal */
+/* TRAÇO ANIMADO APENAS NO MENU PRINCIPAL */
 .nav-menu > li > a::after {
   content: '';
   position: absolute;
@@ -155,7 +155,7 @@ img {
 }
 
 /* ==============================
-   BOTÃO CONTATO
+   BOTÃO CONTATO (SEM TRAÇO)
 ================================ */
 .nav-btn {
   background-color: var(--amarelo);
@@ -175,7 +175,7 @@ img {
 }
 
 /* ==============================
-   DROPDOWN
+   DROPDOWN (ATUAÇÃO)
 ================================ */
 .dropdown-menu {
   position: absolute;
@@ -208,7 +208,7 @@ img {
 }
 
 .dropdown-menu a::after {
-  display: none;
+  display: none !important;
 }
 
 .dropdown-menu a:hover {
@@ -453,7 +453,7 @@ section {
 }
 
 /* ==============================
-   CARDS DE ATUAÇÃO COM TRAÇO ANIMADO
+   CARDS DE ATUAÇÃO
 ================================ */
 .atuacao {
   background-color: var(--azul-escuro);
@@ -476,6 +476,7 @@ section {
   border: 1px solid rgba(31, 79, 216, 0.1);
 }
 
+/* TRAÇO AMARELO NO TOPO DO BLOCO */
 .card::before {
   content: '';
   position: absolute;
@@ -509,25 +510,6 @@ section {
   font-weight: 600;
   margin-bottom: 15px;
   color: var(--branco);
-  position: relative;
-  display: inline-block;
-  padding-bottom: 8px;
-}
-
-/* TRAÇO ANIMADO NO TÍTULO DO CARD (similar ao menu) */
-.card h3::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--amarelo);
-  transition: width 0.3s ease;
-}
-
-.card:hover h3::after {
-  width: 100%;
 }
 
 .card p {
@@ -542,29 +524,10 @@ section {
   display: flex;
   align-items: center;
   gap: 8px;
-  position: relative;
-  padding: 5px 0;
-  text-decoration: none;
-}
-
-/* TRAÇO ANIMADO NO LINK DO CARD */
-.card-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background-color: var(--amarelo);
-  transition: width 0.3s ease;
 }
 
 .card-link:hover {
   gap: 15px;
-}
-
-.card-link:hover::after {
-  width: 100%;
 }
 
 /* ==============================
@@ -726,6 +689,7 @@ section {
   margin-bottom: 12px;
 }
 
+/* TRAÇO ANIMADO NOS LINKS DO FOOTER */
 .footer-links a {
   color: var(--cinza);
   text-decoration: none;
@@ -776,7 +740,7 @@ section {
   margin: 0;
 }
 
-/* Parte inferior - REESTRUTURADA */
+/* Parte inferior */
 .footer-bottom {
   display: flex;
   flex-direction: column;
