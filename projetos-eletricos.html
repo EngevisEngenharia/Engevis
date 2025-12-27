@@ -4,24 +4,26 @@
   <meta charset="UTF-8">
   <title>Projetos e Execução Elétrica | EngeVision</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Projetos elétricos e execução técnica em baixa, média e alta tensão, com foco em segurança, normas e desempenho.">
+  <meta name="description"
+        content="Projetos elétricos executivos com entrega 2D, 3D, memoriais de cálculo e documentação completa para obra, aprovação e operação.">
 
   <!-- Fonte -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
+  <!-- CSS principal -->
   <link rel="stylesheet" href="style.css">
 
-  <!-- Ícones -->
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
 
-<!-- HEADER (igual ao index) -->
+<!-- ================= HEADER ================= -->
 <header class="header">
   <div class="container">
     <nav class="navbar">
+
       <a href="index.html#hero" class="logo-link">
         <img src="images/logo.PNG" alt="EngeVision Engenharia Elétrica" class="logo">
       </a>
@@ -51,95 +53,109 @@
         <span class="bar"></span>
         <span class="bar"></span>
       </div>
+
     </nav>
   </div>
 </header>
 
-<!-- HERO DA PÁGINA -->
+<!-- ================= HERO ================= -->
 <section class="servico-hero">
   <div class="container">
     <div class="servico-hero-content">
-      <span class="slogan">Engenharia Elétrica</span>
+      <span class="slogan">Engenharia Executiva</span>
       <h1 class="hero-title">Projetos e Execução Elétrica</h1>
       <p class="hero-subtitle">
-        Soluções completas em engenharia elétrica, do projeto à execução,
-        com foco em segurança, conformidade normativa e desempenho técnico.
+        Engenharia elétrica desenvolvida para execução real,
+        com entrega completa de projetos 2D, modelagem 3D,
+        memoriais de cálculo e documentação técnica.
       </p>
     </div>
   </div>
 </section>
 
-<!-- SOBRE O SERVIÇO -->
-<section class="servico-sobre">
+<!-- ================= ENGENHARIA QUE ENTREGAMOS ================= -->
+<section class="engenharia-entrega">
   <div class="container">
-    <h2 class="section-title">Atuação Técnica</h2>
+    <div class="engenharia-grid">
 
-    <p class="section-intro">
-      A <strong>EngeVision</strong> atua no desenvolvimento e na execução de projetos elétricos
-      para empreendimentos industriais, comerciais, corporativos e de geração de energia,
-      oferecendo soluções sob medida para cada necessidade.
-    </p>
+      <!-- TEXTO -->
+      <div class="engenharia-texto">
+        <span class="slogan">O que você recebe</span>
+        <h2 class="section-title">Engenharia Elétrica Completa</h2>
 
-    <div class="destaques">
-      <div class="destaque-item">
-        <i class="fas fa-drafting-compass"></i>
-        <h3>Projetos Elétricos</h3>
-        <p>
-          Elaboração de projetos de baixa, média e alta tensão,
-          com detalhamento técnico completo, memoriais, diagramas e compatibilização.
+        <p class="engenharia-descricao">
+          Cada projeto desenvolvido pela <strong>EngeVision</strong> é estruturado
+          para eliminar improvisos em obra. Trabalhamos com engenharia executiva,
+          entregando informações claras, compatibilizadas e prontas para execução.
         </p>
+
+        <ul class="engenharia-lista">
+          <li>
+            <i class="fas fa-check-circle"></i>
+            <strong>Projeto 2D Executivo:</strong> plantas, cortes, detalhes construtivos,
+            diagramas unifilares, quadros elétricos, SPDA e aterramento.
+          </li>
+
+          <li>
+            <i class="fas fa-check-circle"></i>
+            <strong>Modelagem 3D Técnica:</strong> visualização de eletrodutos,
+            infraestrutura elétrica e compatibilização com arquitetura e estruturas.
+          </li>
+
+          <li>
+            <i class="fas fa-check-circle"></i>
+            <strong>Memoriais de Cálculo:</strong> critérios de projeto,
+            dimensionamentos e verificações conforme normas técnicas.
+          </li>
+
+          <li>
+            <i class="fas fa-check-circle"></i>
+            <strong>Documentação Final:</strong> listas de materiais,
+            projetos “as built”, ART e documentação para aprovação e operação.
+          </li>
+        </ul>
       </div>
 
-      <div class="destaque-item">
-        <i class="fas fa-tools"></i>
-        <h3>Execução e Acompanhamento</h3>
-        <p>
-          Execução e acompanhamento técnico de obras elétricas,
-          com inspeções, checklists e visitas em campo conforme a necessidade do projeto.
-        </p>
+      <!-- VISUAL -->
+      <div class="engenharia-visual">
+        <img src="images/gif-projeto.gif"
+             alt="Modelagem 3D de eletrodutos e infraestrutura elétrica">
       </div>
 
-      <div class="destaque-item">
-        <i class="fas fa-shield-alt"></i>
-        <h3>Conformidade e Segurança</h3>
-        <p>
-          Projetos e instalações desenvolvidos conforme NRs, normas ABNT
-          e exigências das concessionárias de energia.
-        </p>
-      </div>
     </div>
   </div>
 </section>
 
-<!-- ESCOPO DOS SERVIÇOS -->
+<!-- ================= ESCOPO DE ATUAÇÃO ================= -->
 <section class="servicos-detalhados">
   <div class="container">
-    <h2 class="section-title">Escopo de Serviços</h2>
+    <h2 class="section-title">Escopo de Atuação</h2>
 
     <div class="servicos-lista">
+
       <div class="servico-item">
         <div class="servico-icon">
-          <i class="fas fa-project-diagram"></i>
+          <i class="fas fa-drafting-compass"></i>
         </div>
         <div class="servico-content">
           <h3>Projetos Elétricos</h3>
           <p>
-            Projetos executivos, básicos e conceituais, incluindo diagramas unifilares,
-            dimensionamento de condutores, quadros elétricos, SPDA, aterramento
-            e documentação técnica completa.
+            Desenvolvimento de projetos básicos, executivos e “as built”
+            em baixa, média e alta tensão, com foco em segurança,
+            desempenho e conformidade normativa.
           </p>
         </div>
       </div>
 
       <div class="servico-item">
         <div class="servico-icon">
-          <i class="fas fa-industry"></i>
+          <i class="fas fa-tools"></i>
         </div>
         <div class="servico-content">
-          <h3>Instalações Elétricas</h3>
+          <h3>Execução e Acompanhamento</h3>
           <p>
-            Execução de instalações elétricas industriais, comerciais e corporativas,
-            com foco em qualidade, organização e rastreabilidade dos serviços.
+            Execução e acompanhamento técnico de obras elétricas,
+            com controle de qualidade, checklists, inspeções e visitas em campo.
           </p>
         </div>
       </div>
@@ -149,76 +165,80 @@
           <i class="fas fa-file-signature"></i>
         </div>
         <div class="servico-content">
-          <h3>Documentação e Regularização</h3>
+          <h3>Documentação e ART</h3>
           <p>
-            Entrega de projetos “as built”, manuais técnicos, laudos e emissão de ART
-            para todos os serviços executados.
+            Emissão de ART para todos os projetos e serviços,
+            além da entrega completa de documentação técnica final.
           </p>
         </div>
       </div>
 
       <div class="servico-item">
         <div class="servico-icon">
-          <i class="fas fa-plug"></i>
+          <i class="fas fa-bolt"></i>
         </div>
         <div class="servico-content">
           <h3>Aprovação em Concessionárias</h3>
           <p>
             Experiência em processos de aprovação junto às concessionárias de energia,
-            incluindo análise de projetos, adequações técnicas e acompanhamento.
+            incluindo adequações técnicas conforme normas locais.
           </p>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- DIFERENCIAIS -->
+<!-- ================= DIFERENCIAIS ================= -->
 <section class="diferenciais-sobre">
   <div class="container">
-    <h2 class="section-title">Diferenciais Técnicos</h2>
+    <h2 class="section-title">Por que nossos projetos funcionam</h2>
 
     <div class="diferenciais-grid">
+
       <div class="diferencial-card">
         <i class="fas fa-users diferencial-icon"></i>
-        <h3>Equipe Especializada</h3>
+        <h3>Equipe Técnica Especializada</h3>
         <p>
-          Estrutura técnica formada por profissionais experientes,
-          atuando sob demanda conforme a complexidade do projeto.
+          Profissionais com experiência prática em projetos e obras,
+          atuando conforme a complexidade de cada empreendimento.
         </p>
       </div>
 
       <div class="diferencial-card">
-        <i class="fas fa-check-circle diferencial-icon"></i>
-        <h3>Alto Nível de Detalhamento</h3>
+        <i class="fas fa-search diferencial-icon"></i>
+        <h3>Nível de Detalhamento</h3>
         <p>
-          Projetos desenvolvidos com foco em clareza, precisão técnica
-          e facilidade de execução em campo.
+          Projetos pensados para execução,
+          reduzindo dúvidas em campo e retrabalhos.
         </p>
       </div>
 
       <div class="diferencial-card">
-        <i class="fas fa-balance-scale diferencial-icon"></i>
-        <h3>Normas e Responsabilidade Técnica</h3>
+        <i class="fas fa-shield-alt diferencial-icon"></i>
+        <h3>Normas e Conformidade</h3>
         <p>
-          Atuação conforme NR-10, NBR 5410 e demais normas aplicáveis,
-          com responsabilidade técnica registrada.
+          Atuação conforme NR-10, NBR 5410
+          e normas das concessionárias de energia.
         </p>
       </div>
+
     </div>
   </div>
 </section>
 
-<!-- CTA FINAL -->
+<!-- ================= CTA FINAL ================= -->
 <section class="cta-final">
   <div class="container">
-    <h2 class="cta-title">Precisa de um projeto elétrico confiável?</h2>
+    <h2 class="cta-title">Seu projeto elétrico precisa funcionar na obra</h2>
     <p class="cta-subtitle">
-      Nossa equipe está pronta para avaliar sua demanda e propor
-      a melhor solução técnica para o seu empreendimento.
+      Desenvolvemos engenharia elétrica com foco em execução,
+      segurança e confiabilidade técnica.
     </p>
+
     <div class="center-btn">
-      <a href="contato.html" class="btn btn-large">Solicitar Orçamento</a>
+      <a href="contato.html" class="btn btn-large">Solicitar orçamento</a>
     </div>
   </div>
 </section>
