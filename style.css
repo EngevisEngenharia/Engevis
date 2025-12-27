@@ -1493,55 +1493,75 @@ section {
 }
 
 /* ==============================
-   TIPOS DE PROJETOS
+   TIPOS DE PROJETOS - BLOCO AMARELO
 ================================ */
 .tipos-projetos {
-  padding: 60px 0;
-  background-color: var(--azul-card);
-  color: var(--branco);
+  padding: 0; /* remove padding, cada item ocupa a largura */
+  background-color: var(--amarelo); /* fundo amarelo da identidade */
 }
 
 .tipos-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .tipo-item {
-  background-color: rgba(255, 255, 255, 0.05);
-  padding: 25px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  flex: 1 1 25%; /* 4 itens lado a lado, ocupa largura total */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: var(--azul-base); /* texto em contraste com amarelo */
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tipo-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background-color: var(--branco);
+  transition: width 0.4s ease;
+}
+
+.tipo-item:hover::before {
+  width: 100%;
 }
 
 .tipo-item:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.2);
 }
 
 .tipo-item i {
-  font-size: 2.5rem;
-  color: var(--amarelo);
+  font-size: 3rem;
   margin-bottom: 15px;
 }
 
 .tipo-item h4 {
   font-size: 1.25rem;
   margin: 0;
+  text-align: center;
 }
 
 /* RESPONSIVO */
 @media (max-width: 1024px) {
-  .tipos-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+  .tipo-item {
+    flex: 1 1 50%; /* 2 itens por linha no tablet */
+    padding: 50px 20px;
   }
 }
 
 @media (max-width: 600px) {
-  .tipos-grid {
-    grid-template-columns: 1fr;
+  .tipo-item {
+    flex: 1 1 100%; /* 1 item por linha no mobile */
+    padding: 40px 20px;
   }
 }
