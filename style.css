@@ -1443,6 +1443,14 @@ section {
   line-height: 1.7;
 }
 
+.engenharia-item-texto strong {
+  display: block;         /* título em linha separada */
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 8px;     /* espaço entre título e descrição */
+  color: var(--amarelo);  /* cor de destaque */
+}
+
 /* IMAGEM DO ITEM */
 .engenharia-item-visual {
   width: 100%; /* ocupa todo o bloco */
