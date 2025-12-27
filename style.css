@@ -1388,17 +1388,10 @@ section {
 .engenharia-entrega {
   padding: 100px 0;
   background-color: var(--azul-base);
+  color: var(--branco);
 }
 
-.engenharia-grid {
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 60px;
-  align-items: center;
-}
-
-/* TEXTO */
-.engenharia-texto .slogan {
+.engenharia-entrega .slogan {
   font-size: 0.85rem;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -1407,48 +1400,50 @@ section {
   font-weight: 600;
 }
 
+.engenharia-entrega .section-title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
 .engenharia-descricao {
-  color: var(--cinza);
   font-size: 1.1rem;
   line-height: 1.8;
-  margin: 25px 0 35px;
+  margin-bottom: 60px;
 }
 
-/* LISTA */
-.engenharia-lista {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.engenharia-lista li {
+/* ITENS */
+.engenharia-itens {
   display: flex;
-  align-items: flex-start;
-  gap: 15px;
-  margin-bottom: 18px;
-  color: var(--branco);
+  flex-direction: column;
+  gap: 50px;
+}
+
+.engenharia-item {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.engenharia-item.reverse {
+  flex-direction: row-reverse;
+}
+
+.engenharia-item-texto {
+  flex: 1;
+  font-size: 1.05rem;
   line-height: 1.6;
 }
 
-.engenharia-lista i {
-  color: var(--amarelo);
-  font-size: 1.1rem;
-  margin-top: 4px;
-}
-
-/* VISUAL */
-.engenharia-visual {
-  position: relative; /* necessário para o traço animado */
-  background-color: var(--azul-card);
+.engenharia-item-visual {
+  flex: 0 0 250px; /* largura discreta da imagem */
+  position: relative;
   border-radius: 10px;
-  padding: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
   overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* TRAÇO AMARELO NO TOPO */
-.engenharia-visual::before {
+.engenharia-item-visual::before {
   content: "";
   position: absolute;
   top: 0;
@@ -1459,31 +1454,29 @@ section {
   transition: width 0.4s ease;
 }
 
-.engenharia-visual:hover::before {
+.engenharia-item-visual:hover::before {
   width: 100%;
 }
 
-.engenharia-visual:hover {
+.engenharia-item-visual:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
-.engenharia-visual img {
+.engenharia-item-visual img {
   width: 100%;
   border-radius: 6px;
 }
 
 /* RESPONSIVO */
 @media (max-width: 1024px) {
-  .engenharia-grid {
-    grid-template-columns: 1fr;
-    gap: 50px;
+  .engenharia-item, .engenharia-item.reverse {
+    flex-direction: column;
+    text-align: center;
   }
 
-  .engenharia-visual {
-    max-width: 600px;
+  .engenharia-item-visual {
+    width: 200px;
     margin: 0 auto;
   }
 }
-
-
