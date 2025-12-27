@@ -1382,3 +1382,83 @@ section {
 }
 
 
+/* ==============================
+   ENGENHARIA - O QUE ENTREGAMOS
+================================ */
+.engenharia-entrega {
+  padding: 100px 0;
+  background-color: var(--azul-base);
+}
+
+.engenharia-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* TEXTO */
+.engenharia-texto .slogan {
+  font-size: 0.85rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--amarelo);
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.engenharia-descricao {
+  color: var(--cinza);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin: 25px 0 35px;
+}
+
+/* LISTA */
+.engenharia-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.engenharia-lista li {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-bottom: 18px;
+  color: var(--branco);
+  line-height: 1.6;
+}
+
+.engenharia-lista i {
+  color: var(--amarelo);
+  font-size: 1.1rem;
+  margin-top: 4px;
+}
+
+/* VISUAL */
+.engenharia-visual {
+  background-color: var(--azul-card);
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.engenharia-visual img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 1024px) {
+  .engenharia-grid {
+    grid-template-columns: 1fr;
+    gap: 50px;
+  }
+
+  .engenharia-visual {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
