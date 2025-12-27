@@ -1357,30 +1357,137 @@ section {
 }
 
 /* ==============================
-   HERO - PROJETOS ELÉTRICOS
+   VARIÁVEIS DE CORES
 ================================ */
-.servico-hero {
-  min-height: 70vh;
-  background: linear-gradient(rgba(11, 16, 32, 0.9), rgba(11, 16, 32, 0.85)),
-              url("images/projetos-eletricos.jpg") center / cover no-repeat;
-  display: flex;
-  align-items: center;
-  padding: 140px 20px 80px;
-  margin-top: 70px;
-}
-
-.servico-hero-content {
-  max-width: 800px;
-  animation: fadeUp 1s ease forwards;
+:root {
+  --azul-base: #0b1020;
+  --amarelo: #f5c518;
+  --branco: #ffffff;
 }
 
 /* ==============================
-   SOBRE SERVIÇO
+   HERO - ENERGIA RENOVÁVEL
 ================================ */
-.servico-sobre {
-  padding: 100px 0;
+.servico-hero {
+  position: relative;
+  background: url('images/renovaveis.jpg') center/cover no-repeat;
+  height: 500px; /* altura do banner */
+  display: flex;
+  align-items: center;
+  color: var(--branco);
+  text-align: center;
 }
 
+.servico-hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5); /* sobreposição escura */
+  z-index: 1;
+}
+
+.servico-hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.servico-hero .slogan {
+  font-size: 0.9rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--amarelo);
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.servico-hero .hero-title {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+
+.servico-hero .hero-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* ==============================
+   TIPOS DE PROJETOS - BLOCO AMARELO
+================================ */
+.tipos-projetos {
+  padding: 0;
+  background-color: var(--amarelo); /* fundo amarelo */
+}
+
+.tipos-grid {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tipo-item {
+  flex: 1 1 20%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 16px;
+  color: var(--azul-base); 
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tipo-item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background-color: var(--azul-base); 
+  transition: width 0.4s ease;
+}
+
+.tipo-item:hover::before {
+  width: 100%;
+}
+
+.tipo-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.tipo-item i {
+  font-size: 2.4rem; 
+  margin-bottom: 12px;
+  color: var(--azul-base);
+}
+
+.tipo-item h4 {
+  font-size: 1rem; 
+  margin: 0;
+  text-align: center;
+  color: var(--azul-base);
+}
+
+/* RESPONSIVO TIPOS DE PROJETOS */
+@media (max-width: 1024px) {
+  .tipo-item {
+    flex: 1 1 50%; 
+    padding: 40px 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .tipo-item {
+    flex: 1 1 100%; 
+    padding: 32px 16px;
+  }
+}
 
 /* ==============================
    ENGENHARIA - O QUE ENTREGAMOS
@@ -1414,14 +1521,14 @@ section {
 /* GRID DE ITENS 2x2 */
 .engenharia-itens {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 colunas */
+  grid-template-columns: repeat(2, 1fr);
   gap: 40px;
 }
 
 /* BLOCO DO ITEM */
 .engenharia-item {
   display: flex;
-  flex-direction: column; /* imagem em cima, texto embaixo */
+  flex-direction: column;
   align-items: center;
   gap: 20px;
   background-color: rgba(255, 255, 255, 0.05);
@@ -1444,17 +1551,17 @@ section {
 }
 
 .engenharia-item-texto strong {
-  display: block;         /* título em linha separada */
+  display: block;
   font-weight: 700;
   font-size: 1.2rem;
-  margin-bottom: 8px;     /* espaço entre título e descrição */
-  color: var(--amarelo);  /* cor de destaque */
+  margin-bottom: 8px;
+  color: var(--amarelo);
 }
 
 /* IMAGEM DO ITEM */
 .engenharia-item-visual {
-  width: 100%; /* ocupa todo o bloco */
-  max-width: 350px; /* tamanho máximo */
+  width: 100%;
+  max-width: 350px;
   position: relative;
   border-radius: 10px;
   overflow: hidden;
@@ -1483,134 +1590,11 @@ section {
 /* RESPONSIVO */
 @media (max-width: 1024px) {
   .engenharia-itens {
-    grid-template-columns: 1fr; /* uma coluna no tablet/mobile */
+    grid-template-columns: 1fr;
     gap: 30px;
   }
 
   .engenharia-item-visual {
-    max-width: 100%; /* ocupa toda a largura do bloco */
+    max-width: 100%;
   }
-}
-
-/* ==============================
-   TIPOS DE PROJETOS - BLOCO AMARELO
-================================ */
-.tipos-projetos {
-  padding: 0;
-  background-color: var(--amarelo); /* fundo amarelo */
-}
-
-.tipos-grid {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.tipo-item {
-  flex: 1 1 20%; /* itens 20% menores do que antes */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 48px 16px; /* 20% menor que antes */
-  color: var(--azul-base); /* ícones e texto azuis */
-  font-weight: 600;
-  position: relative;
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.tipo-item::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 4px;
-  width: 0%;
-  background-color: var(--azul-base); /* traço azul */
-  transition: width 0.4s ease;
-}
-
-.tipo-item:hover::before {
-  width: 100%;
-}
-
-.tipo-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-.tipo-item i {
-  font-size: 2.4rem; /* reduzido 20% */
-  margin-bottom: 12px;
-  color: var(--azul-base); /* ícones azuis */
-}
-
-.tipo-item h4 {
-  font-size: 1rem; /* reduzido 20% */
-  margin: 0;
-  text-align: center;
-  color: var(--azul-base); /* texto azul */
-}
-
-/* RESPONSIVO */
-@media (max-width: 1024px) {
-  .tipo-item {
-    flex: 1 1 50%; /* 2 itens por linha no tablet */
-    padding: 40px 16px;
-  }
-}
-
-@media (max-width: 600px) {
-  .tipo-item {
-    flex: 1 1 100%; /* 1 item por linha no mobile */
-    padding: 32px 16px;
-  }
-}
-
-
-
-.servico-hero {
-  position: relative;
-  background: url('images/renovaveis.jpg') center/cover no-repeat;
-  height: 500px; /* altura do banner, ajuste conforme necessidade */
-  display: flex;
-  align-items: center;
-  color: var(--branco);
-  text-align: center;
-}
-
-.servico-hero::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.5); /* sobreposição escura para contraste do texto */
-  z-index: 1;
-}
-
-.servico-hero .container {
-  position: relative;
-  z-index: 2;
-}
-
-.servico-hero .slogan {
-  font-size: 0.9rem;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--amarelo);
-  margin-bottom: 15px;
-  font-weight: 600;
-}
-
-.servico-hero .hero-title {
-  font-size: 2.5rem;
-  margin-bottom: 15px;
-}
-
-.servico-hero .hero-subtitle {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  max-width: 700px;
-  margin: 0 auto;
 }
