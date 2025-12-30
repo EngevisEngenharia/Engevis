@@ -1642,7 +1642,7 @@ section {
 }
 
 .cta-box {
-  background-color: #ffffff;
+  background-color: #0B1020;
   border-radius: 12px;
   padding: 40px 20px;
   display: flex;
@@ -1705,4 +1705,5 @@ section {
   font-size: 1.8rem;
   color: #25D366;
 }
+
 
