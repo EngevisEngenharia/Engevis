@@ -2,21 +2,24 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projetos e Execução Elétrica | EngeVision</title>
-  <meta name="description" content="Projetos elétricos executivos com entrega 2D, 3D, memoriais de cálculo e documentação completa para obra, aprovação e operação.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+        content="Projetos elétricos executivos com entrega 2D, 3D, memoriais de cálculo e documentação completa para obra, aprovação e operação.">
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Fonte -->
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
   <style>
+    /* ==================================================================================
+       VARIÁVEIS GLOBAIS E ESTILOS BASE
+    ================================================================================== */
+    
     /* ==============================
-       VARIÁVEIS GLOBAIS
+       VARIÁVEIS DE IDENTIDADE
     ================================ */
     :root {
       --azul-base: #0B1020;
@@ -40,9 +43,15 @@
       box-sizing: border-box;
     }
 
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 90px;
+      scroll-padding-top: 80px;
     }
 
     body {
@@ -50,17 +59,6 @@
       background-color: var(--azul-base);
       color: var(--branco);
       line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
     }
 
     .container {
@@ -69,18 +67,44 @@
       padding: 0 20px;
     }
 
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ==============================
+       ANIMAÇÕES GLOBAIS
+    ================================ */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     /* ==============================
        HEADER / NAVEGAÇÃO
     ================================ */
     .header {
       position: fixed;
       top: 0;
+      left: 0;
       width: 100%;
       background-color: rgba(11, 16, 32, 0.95);
       backdrop-filter: blur(10px);
       z-index: 1000;
       padding: 15px 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
+      border-bottom: 1px solid rgba(31, 79, 216, 0.1);
     }
 
     .navbar {
@@ -89,8 +113,14 @@
       align-items: center;
     }
 
+    .logo-link {
+      display: flex;
+      align-items: center;
+    }
+
     .logo {
       width: 80px;
+      height: auto;
       transition: transform 0.3s ease;
     }
 
@@ -103,17 +133,19 @@
     ================================ */
     .nav-menu {
       display: flex;
+      align-items: center;
       gap: 40px;
       list-style: none;
     }
 
-    .nav-menu > li {
+    .nav-menu li {
       position: relative;
     }
 
     .nav-menu > li > a {
-      font-size: 0.95rem;
       font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--branco);
       position: relative;
       padding: 5px 0;
       display: flex;
@@ -121,8 +153,9 @@
       gap: 6px;
     }
 
+    /* TRAÇO ANIMADO APENAS NO MENU PRINCIPAL */
     .nav-menu > li > a::after {
-      content: "";
+      content: '';
       position: absolute;
       bottom: -4px;
       left: 0;
@@ -132,25 +165,27 @@
       transition: width 0.3s ease;
     }
 
-    .nav-menu > li > a:hover {
-      color: var(--amarelo);
-    }
-
     .nav-menu > li > a:hover::after {
       width: 100%;
     }
 
-    /* BOTÃO CONTATO */
+    .nav-menu > li > a:hover {
+      color: var(--amarelo);
+    }
+
+    /* ==============================
+       BOTÃO CONTATO
+    ================================ */
     .nav-btn {
       background-color: var(--amarelo);
       color: var(--azul-base) !important;
-      padding: 10px 25px;
+      padding: 10px 25px !important;
       border-radius: 4px;
-      font-weight: 600;
+      font-weight: 600 !important;
     }
 
     .nav-btn::after {
-      display: none;
+      display: none !important;
     }
 
     .nav-btn:hover {
@@ -159,39 +194,50 @@
     }
 
     /* ==============================
-       DROPDOWN
+       DROPDOWN (ATUAÇÃO)
     ================================ */
     .dropdown-menu {
       position: absolute;
       top: 140%;
       left: 0;
-      min-width: 260px;
-      background-color: rgba(11,16,32,0.98);
+      background-color: rgba(11, 16, 32, 0.98);
+      min-width: 280px;
+      padding: 15px 0;
       border-radius: 6px;
-      padding: 12px 0;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
       opacity: 0;
       visibility: hidden;
       transform: translateY(10px);
-      transition: 0.3s ease;
-      list-style: none;
+      transition: all 0.3s ease;
       z-index: 999;
+      list-style: none;
     }
 
+    .dropdown-menu li {
+      width: 100%;
+    }
+
+    .dropdown-menu a {
+      padding: 10px 20px;
+      width: 100%;
+      font-size: 0.9rem;
+      color: var(--branco);
+    }
+
+    .dropdown-menu a::after {
+      display: none !important;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: rgba(255, 255, 255, 0.05);
+      color: var(--amarelo);
+    }
+
+    /* Hover desktop */
     .dropdown:hover .dropdown-menu {
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
-    }
-
-    .dropdown-menu a {
-      display: block;
-      padding: 10px 20px;
-      font-size: 0.9rem;
-    }
-
-    .dropdown-menu a:hover {
-      background-color: rgba(255,255,255,0.05);
-      color: var(--amarelo);
     }
 
     /* ==============================
@@ -202,15 +248,15 @@
       cursor: pointer;
       background: none;
       border: none;
-      padding: 5px;
     }
 
     .bar {
+      display: block;
       width: 25px;
       height: 3px;
+      margin: 5px auto;
       background-color: var(--branco);
-      margin: 5px 0;
-      transition: 0.3s;
+      transition: all 0.3s ease;
     }
 
     /* ==============================
@@ -254,13 +300,13 @@
       display: block;
     }
 
-    .servico-hero h1 {
+    .hero-title {
       font-size: 2.5rem;
       margin-bottom: 15px;
       line-height: 1.2;
     }
 
-    .servico-hero p {
+    .hero-subtitle {
       font-size: 1.1rem;
       line-height: 1.6;
       max-width: 700px;
@@ -326,17 +372,347 @@
     .tipo-item h4 {
       font-size: 1rem;
       margin: 0;
-      text-align: center;
       color: var(--azul-base);
+    }
+
+    /* ==============================
+       INTRODUÇÃO
+    ================================ */
+    #introducao {
+      padding: 80px 0;
+      background-color: var(--azul-base);
+    }
+
+    #introducao h2 {
+      font-size: 2.2rem;
+      color: var(--branco);
+      margin-bottom: 25px;
+      position: relative;
+      display: inline-block;
+    }
+
+    #introducao h2::after {
+      content: "";
+      width: 60px;
+      height: 4px;
+      background-color: var(--cinza);
+      display: block;
+      margin-top: 10px;
+      border-radius: 2px;
+    }
+
+    #introducao p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: var(--cinza);
+      margin-bottom: 20px;
+    }
+
+    /* ==============================
+       ENGENHARIA QUE ENTREGAMOS
+    ================================ */
+    .engenharia-entrega {
+      padding: 100px 0;
+      background-color: var(--azul-escuro);
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: "";
+      width: 80px;
+      height: 4px;
+      background-color: var(--amarelo);
+      display: block;
+      margin-top: 15px;
+      border-radius: 2px;
+    }
+
+    .engenharia-descricao {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 60px;
+      max-width: 900px;
+      color: var(--cinza);
+    }
+
+    .engenharia-descricao strong {
+      color: var(--amarelo);
+    }
+
+    /* ITENS COM ÍCONES */
+    .engenharia-itens-lista {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .engenharia-item-lista {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 25px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
+      border-left: 4px solid var(--amarelo);
+      transition: transform 0.3s ease;
+    }
+
+    .engenharia-item-lista:hover {
+      transform: translateY(-5px);
+    }
+
+    .item-icon {
+      font-size: 2rem;
+      color: var(--amarelo);
+      min-width: 40px;
+      text-align: center;
+    }
+
+    .item-texto strong {
+      display: block;
+      font-size: 1.2rem;
+      color: var(--amarelo);
+      margin-bottom: 8px;
+    }
+
+    .item-texto p {
+      color: var(--branco);
+      line-height: 1.6;
+    }
+
+    /* CARDS 2X2 COM IMAGEM */
+    .engenharia-itens-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+
+    .engenharia-card {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .engenharia-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    }
+
+    .engenharia-card img {
+      width: 100%;
+      border-radius: 6px;
+      margin-bottom: 15px;
+    }
+
+    .engenharia-card-texto strong {
+      display: block;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--amarelo);
+      margin-bottom: 8px;
+    }
+
+    .engenharia-card-texto p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin: 0;
+      color: var(--cinza);
+    }
+
+    /* ==============================
+       COMO TRABALHAMOS
+    ================================ */
+    .servicos-detalhados {
+      padding: 100px 0;
+      background-color: var(--azul-base);
+    }
+
+    .servicos-lista {
+      max-width: 1000px;
+      margin: 50px auto 0;
+    }
+
+    .servico-item {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 30px;
+      margin-bottom: 50px;
+      align-items: start;
+    }
+
+    .servico-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--azul-card);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--amarelo);
+    }
+
+    .servico-icon i {
+      font-size: 2.5rem;
+      color: var(--amarelo);
+    }
+
+    .servico-content h3 {
+      font-size: 1.6rem;
+      margin-bottom: 15px;
+      color: var(--branco);
+    }
+
+    .servico-content p {
+      color: var(--cinza);
+      line-height: 1.8;
+    }
+
+    /* ==============================
+       DIFERENCIAIS
+    ================================ */
+    .diferenciais-sobre {
+      padding: 100px 0;
+      background-color: var(--azul-escuro);
+    }
+
+    .diferenciais-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+
+    .diferencial-card {
+      background: var(--azul-card);
+      padding: 40px 30px;
+      border-radius: 8px;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .diferencial-card:hover {
+      transform: translateY(-10px);
+      background: var(--azul-card-hover);
+      border-color: var(--amarelo);
+    }
+
+    .diferencial-icon {
+      font-size: 2.8rem;
+      color: var(--amarelo);
+      margin-bottom: 25px;
+    }
+
+    .diferencial-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--branco);
+    }
+
+    .diferencial-card p {
+      color: var(--cinza);
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    /* ==============================
+       CTA FINAL
+    ================================ */
+    .cta-final {
+      padding: 80px 0;
+      background: linear-gradient(rgba(11, 16, 32, 0.9), rgba(11, 16, 32, 0.9)),
+                  url("images/cta-bg.jpg") center/cover no-repeat;
+      text-align: center;
+    }
+
+    .cta-quadro {
+      background-color: var(--azul-card);
+      padding: 60px 40px;
+      border-radius: 12px;
+      max-width: 800px;
+      margin: 0 auto;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .cta-title {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: var(--branco);
+    }
+
+    .cta-subtitle {
+      font-size: 1.2rem;
+      color: var(--cinza);
+      margin-bottom: 40px;
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.6;
+    }
+
+    .center-btn {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 16px 40px;
+      background-color: transparent;
+      border: 2px solid var(--amarelo);
+      color: var(--amarelo);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: all 0.3s ease;
+      border-radius: 4px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background-color: var(--amarelo);
+      color: var(--azul-base);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(242, 183, 5, 0.2);
+    }
+
+    .btn-large {
+      padding: 18px 45px;
+      font-size: 1.1rem;
+    }
+
+    .whatsapp-btn {
+      background-color: #25D366 !important;
+      color: white !important;
+      border: none !important;
+    }
+
+    .whatsapp-btn:hover {
+      background-color: #1ebe5d !important;
     }
 
     /* ==============================
        FOOTER
     ================================ */
     .footer {
+      width: 100%;
       background-color: var(--azul-escuro);
       padding: 80px 0 0;
-      border-top: 1px solid rgba(255,255,255,0.08);
+      border-top: 1px solid rgba(31, 79, 216, 0.15);
+      box-sizing: border-box;
+      margin: 0;
+      position: relative;
     }
 
     .footer-container {
@@ -352,6 +728,12 @@
       margin-bottom: 60px;
     }
 
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
     .footer-logo {
       width: 90px;
     }
@@ -359,7 +741,8 @@
     .footer-slogan {
       color: var(--cinza);
       font-style: italic;
-      margin-top: 15px;
+      line-height: 1.6;
+      max-width: 320px;
     }
 
     .footer-links h3,
@@ -372,6 +755,7 @@
     .footer-links ul {
       list-style: none;
       padding: 0;
+      margin: 0;
     }
 
     .footer-links li {
@@ -380,64 +764,125 @@
 
     .footer-links a {
       color: var(--cinza);
-      transition: color 0.3s;
+      transition: all 0.3s ease;
+      position: relative;
+      padding: 2px 0;
+      display: inline-block;
+    }
+
+    .footer-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: var(--amarelo);
+      transition: width 0.3s ease;
     }
 
     .footer-links a:hover {
       color: var(--amarelo);
+      padding-left: 6px;
+    }
+
+    .footer-links a:hover::after {
+      width: 100%;
     }
 
     .footer-contact p {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       color: var(--cinza);
-      margin-bottom: 15px;
+      margin-bottom: 14px;
     }
 
     .footer-contact i {
       color: var(--amarelo);
-      width: 20px;
+      min-width: 18px;
+    }
+
+    .footer-divider {
+      width: 100%;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.08);
+      margin: 0;
     }
 
     .footer-bottom {
-      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       padding: 30px 0;
-      border-top: 1px solid rgba(255,255,255,0.08);
     }
 
-    .copyright {
-      color: var(--cinza);
-      font-size: 0.9rem;
+    .footer-social {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 30px;
     }
 
-    /* ==============================
-       WHATSAPP FIXO
-    ================================ */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 60px;
-      height: 60px;
-      background-color: #25D366;
+    .footer-social a {
+      width: 40px;
+      height: 40px;
       border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 9999;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      animation: bounce 2s infinite;
+      transition: all 0.3s ease;
     }
 
-    .whatsapp-float img {
-      width: 32px;
-      height: 32px;
+    .footer-social a:hover {
+      background-color: var(--amarelo);
+      transform: translateY(-3px);
+    }
+
+    .footer-social i {
+      color: var(--branco);
+    }
+
+    .copyright {
+      text-align: center;
+      width: 100%;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .copyright p {
+      font-size: 0.9rem;
+      color: var(--cinza);
+      margin: 0 0 5px 0;
+      line-height: 1.4;
+    }
+
+    .copyright span {
+      display: block;
+      font-size: 0.85rem;
+      color: var(--cinza);
+      opacity: 0.8;
     }
 
     /* ==============================
        RESPONSIVIDADE
     ================================ */
+    @media (max-width: 1024px) {
+      .engenharia-itens-cards {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      
+      .tipo-item {
+        flex: 1 1 50%;
+        padding: 40px 16px;
+      }
+      
+      .diferenciais-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+    }
+
     @media (max-width: 768px) {
       .hamburger {
         display: block;
@@ -445,49 +890,64 @@
 
       .nav-menu {
         position: fixed;
-        top: 70px;
         left: -100%;
-        width: 100%;
-        background-color: var(--azul-base);
+        top: 70px;
         flex-direction: column;
-        gap: 30px;
-        padding: 40px 0;
-        transition: 0.3s;
+        background-color: var(--azul-base);
+        width: 100%;
         text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+        padding: 40px 0;
+        gap: 30px;
       }
 
       .nav-menu.active {
         left: 0;
       }
 
-      .hamburger.active .bar:nth-child(1) {
-        transform: rotate(45deg) translateY(8px);
-      }
-
       .hamburger.active .bar:nth-child(2) {
         opacity: 0;
       }
 
+      .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+
       .hamburger.active .bar:nth-child(3) {
-        transform: rotate(-45deg) translateY(-8px);
+        transform: translateY(-8px) rotate(-45deg);
       }
 
       .servico-hero {
         height: 400px;
-        margin-top: 60px;
+        padding: 100px 20px;
       }
 
-      .servico-hero h1 {
+      .hero-title {
         font-size: 2rem;
       }
 
-      .servico-hero p {
-        font-size: 1rem;
+      .section-title {
+        font-size: 2rem;
       }
 
-      .tipo-item {
-        flex: 1 1 50%;
-        padding: 30px 16px;
+      .servico-item {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 20px;
+      }
+
+      .servico-icon {
+        margin: 0 auto;
+      }
+
+      .engenharia-item-lista {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .item-icon {
+        margin: 0 auto;
       }
 
       .footer-container {
@@ -502,108 +962,375 @@
     @media (max-width: 480px) {
       .tipo-item {
         flex: 1 1 100%;
+        padding: 32px 16px;
       }
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
+      
+      .diferenciais-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .diferencial-card {
+        padding: 30px 20px;
+      }
+      
+      .cta-quadro {
+        padding: 40px 20px;
+      }
+      
+      .cta-title {
+        font-size: 1.8rem;
+      }
     }
   </style>
 </head>
+
 <body>
 
 <!-- ================= HEADER ================= -->
 <header class="header">
   <div class="container">
-    <nav class="navbar" aria-label="Navegação principal">
+    <nav class="navbar">
+
+      <!-- LOGO -->
       <a href="index.html" class="logo-link">
         <img src="images/logo.PNG" alt="EngeVision Engenharia Elétrica" class="logo">
       </a>
 
+      <!-- MENU -->
       <ul class="nav-menu">
         <li><a href="index.html#hero">Home</a></li>
         <li><a href="index.html#quem-somos">A EngeVision</a></li>
+
         <li class="dropdown">
-          <a href="index.html#atuacao">
+          <a href="index.html#atuacao" class="dropdown-toggle">
             Atuação <i class="fas fa-chevron-down"></i>
           </a>
           <ul class="dropdown-menu">
             <li><a href="projetos-eletricos.html">Projetos e Execução Elétrica</a></li>
             <li><a href="renovaveis.html">Energia Renovável</a></li>
-            <li><a href="eficiencia.html">Eficiência Energética</a></li>
+            <li><a href="eficiencia.html">Eficiência e Auditoria Energética</a></li>
           </ul>
         </li>
+
         <li><a href="#contato" class="nav-btn">Contato</a></li>
       </ul>
 
-      <button class="hamburger" aria-label="Abrir menu">
+      <!-- HAMBURGER -->
+      <button class="hamburger">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
       </button>
+
     </nav>
   </div>
 </header>
 
-<main>
-  <!-- ================= HERO ================= -->
-  <section class="servico-hero" style="background-image:url('images/projetos-eletricos.jpg');">
-    <div class="container">
-      <div class="servico-hero-content">
-        <span class="slogan">Engenharia Executiva</span>
-        <h1>Projetos e Execução Elétrica</h1>
-        <p>
-          Desenvolvemos projetos elétricos completos para residências, comércios e indústrias,
-          com foco em eficiência, segurança e precisão técnica, com entrega acompanhada de ART.
-        </p>
-      </div>
+<!-- ================= HERO - PROJETOS ELÉTRICOS ================= -->
+<section class="servico-hero" style="background-image: url('images/projetos-eletricos.jpg');">
+  <div class="container">
+    <div class="servico-hero-content">
+      <span class="slogan">Engenharia Executiva</span>
+      <h1 class="hero-title">Projetos e Execução Elétrica</h1>
+      <p class="hero-subtitle">
+       Desenvolvemos projetos elétricos completos para residências, 
+        comércios e pequenas indústrias, com foco em eficiência, 
+        segurança e precisão técnica. Todos os projetos são entregues com ART, 
+        garantindo respaldo profissional e conformidade com as normas de engenharia.
+      </p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ================= TIPOS ================= -->
-  <section class="tipos-projetos">
-    <div class="container">
-      <div class="tipos-grid">
-        <div class="tipo-item">
-          <i class="fas fa-home"></i>
-          <h4>Residenciais</h4>
+<!-- ================= TIPOS DE PROJETOS ================= -->
+<section class="tipos-projetos">
+  <div class="container">
+    <div class="tipos-grid">
+      <div class="tipo-item">
+        <i class="fas fa-home"></i>
+        <h4>Projetos Residenciais</h4>
+      </div>
+      <div class="tipo-item">
+        <i class="fas fa-building"></i>
+        <h4>Projetos Prediais</h4>
+      </div>
+      <div class="tipo-item">
+        <i class="fas fa-industry"></i>
+        <h4>Projetos Industriais</h4>
+      </div>
+      <div class="tipo-item">
+        <i class="fas fa-bolt"></i>
+        <h4>Alta Tensão</h4>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= INTRODUÇÃO ================= -->
+<section id="introducao">
+  <div class="container">
+    <h2>Introdução</h2>
+    <p>
+      A <strong>ENGEVISION</strong> cria projetos elétricos detalhados, preparados para uso por eletricistas, construtores e técnicos, garantindo clareza, segurança e conformidade com normas técnicas.
+    </p>
+    <p>
+      Nosso foco é fornecer soluções práticas e eficientes, que podem ser utilizadas diretamente na execução da obra.
+    </p>
+  </div>
+</section>
+
+<!-- ================= ENGENHARIA QUE ENTREGAMOS ================= -->
+<section class="engenharia-entrega">
+  <div class="container">
+    <h2 class="section-title">O que você recebe?</h2>
+
+    <p class="engenharia-descricao">
+      Cada projeto desenvolvido pela <strong>EngeVision</strong> é estruturado
+      para eliminar improvisos em obra. Trabalhamos com engenharia executiva,
+      entregando informações detalhadas, compatibilizadas e prontas para execução.
+      Garantimos que cada etapa do projeto seja clara, precisa e alinhada às normas técnicas.
+    </p>
+
+    <!-- ================= ITENS SIMPLES COM ÍCONES ================= -->
+    <div class="engenharia-itens-lista">
+
+      <div class="engenharia-item-lista">
+        <div class="item-icon"><i class="fas fa-drafting-compass"></i></div>
+        <div class="item-texto">
+          <strong>Plantas elétricas detalhadas:</strong>
+          <p>Desenhos completos para execução precisa de cada etapa do projeto.</p>
         </div>
-        <div class="tipo-item">
-          <i class="fas fa-building"></i>
-          <h4>Prediais</h4>
+      </div>
+
+      <div class="engenharia-item-lista">
+        <div class="item-icon"><i class="fas fa-project-diagram"></i></div>
+        <div class="item-texto">
+          <strong>Diagramas unifilares e esquemas técnicos:</strong>
+          <p>Representações claras de circuitos e conexões para facilitar a compreensão e execução.</p>
         </div>
-        <div class="tipo-item">
-          <i class="fas fa-industry"></i>
-          <h4>Industriais</h4>
+      </div>
+
+      <div class="engenharia-item-lista">
+        <div class="item-icon"><i class="fas fa-calculator"></i></div>
+        <div class="item-texto">
+          <strong>Quadro de cargas e dimensionamentos:</strong>
+          <p>Cálculos detalhados para garantir eficiência, segurança e conformidade normativa.</p>
         </div>
-        <div class="tipo-item">
-          <i class="fas fa-bolt"></i>
-          <h4>Alta Tensão</h4>
+      </div>
+
+      <div class="engenharia-item-lista">
+        <div class="item-icon"><i class="fas fa-file-alt"></i></div>
+        <div class="item-texto">
+          <strong>Memorial descritivo e cálculos técnicos:</strong>
+          <p>Documentação fundamentada para respaldar decisões e assegurar confiabilidade do projeto.</p>
+        </div>
+      </div>
+
+      <div class="engenharia-item-lista">
+        <div class="item-icon"><i class="fas fa-list-ul"></i></div>
+        <div class="item-texto">
+          <strong>Lista de materiais especificada:</strong>
+          <p>Detalhamento completo de equipamentos e componentes para execução sem dúvidas.</p>
+        </div>
+      </div>
+
+      <div class="engenharia-item-lista">
+        <div class="item-icon"><i class="fas fa-file-pdf"></i></div>
+        <div class="item-texto">
+          <strong>Documentação organizada em PDF:</strong>
+          <p>Todos os arquivos necessários entregues de forma clara, estruturada e pronta para uso.</p>
+        </div>
+      </div>
+
+      <div class="engenharia-item-lista">
+        <div class="item-icon"><i class="fas fa-file-signature"></i></div>
+        <div class="item-texto">
+          <strong>Entrega com ART:</strong>
+          <p>Projetos formalmente respaldados, garantindo conformidade legal e técnica.</p>
+        </div>
+      </div>
+
+      <div class="engenharia-item-lista">
+        <div class="item-icon"><i class="fas fa-file-code"></i></div>
+        <div class="item-texto">
+          <strong>Arquivos editáveis (DWG):</strong>
+          <p>Disponíveis mediante solicitação, permitindo alterações e compatibilizações adicionais.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ================= CARDS 2X2 COM IMAGEM ACIMA ================= -->
+    <div class="engenharia-itens-cards">
+      <!-- CARD 1 -->
+      <div class="engenharia-card">
+        <img src="images/2d-projeto.jpg" alt="Desenho 2D de projeto elétrico">
+        <div class="engenharia-card-texto">
+          <strong>Projeto 2D Executivo:</strong>
+          <p>Elaboramos plantas detalhadas, cortes e diagramas unifilares que minimizam erros e agilizam a execução da obra. Cada documento é cuidadosamente desenvolvido para garantir a precisão e facilitar a compreensão por todos os envolvidos no projeto.</p>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="engenharia-card">
+        <img src="images/gif-projeto.gif" alt="Modelagem 3D de eletrodutos e infraestrutura elétrica">
+        <div class="engenharia-card-texto">
+          <strong>Modelagem 3D Técnica:</strong>
+          <p>Criamos modelos tridimensionais detalhados que permitem visualizar eletrodutos e toda infraestrutura elétrica, facilitando a compatibilização com arquitetura e estruturas. Isso ajuda a identificar e resolver conflitos antes da execução, evitando retrabalhos.</p>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="engenharia-card">
+        <img src="images/memorial.jpg" alt="Memorial de cálculo">
+        <div class="engenharia-card-texto">
+          <strong>Memoriais de Cálculo:</strong>
+          <p>Apresentamos critérios técnicos, dimensionamentos e verificações de acordo com as normas vigentes, garantindo segurança e eficiência elétrica. Cada memorial é elaborado para fundamentar decisões e assegurar a confiabilidade do sistema.</p>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="engenharia-card">
+        <img src="images/documentacao.webp" alt="Documentação final do projeto">
+        <div class="engenharia-card-texto">
+          <strong>Documentação Final:</strong>
+          <p>Fornecemos listas de materiais completas, projetos "as built", ART e toda documentação necessária para aprovação, operação e manutenção. Assim, o projeto chega pronto para uso, sem lacunas ou dúvidas.</p>
         </div>
       </div>
     </div>
-  </section>
-</main>
+  </div>
+</section>
+
+<!-- ================= ESCOPO DE ATUAÇÃO ================= -->
+<section class="servicos-detalhados">
+  <div class="container">
+    <h2 class="section-title">Como Trabalhamos</h2>
+
+    <div class="servicos-lista">
+      <div class="servico-item">
+        <div class="servico-icon"><i class="fas fa-search"></i></div>
+        <div class="servico-content">
+          <h3>Levantamento técnico personalizado</h3>
+          <p>Analisamos detalhadamente as necessidades do cliente para garantir que o projeto atenda exatamente às expectativas.</p>
+        </div>
+      </div>
+
+      <div class="servico-item">
+        <div class="servico-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+        <div class="servico-content">
+          <h3>Proposta detalhada e transparente</h3>
+          <p>Apresentamos um escopo completo com valores claros, garantindo total compreensão e segurança na decisão.</p>
+        </div>
+      </div>
+
+      <div class="servico-item">
+        <div class="servico-icon"><i class="fas fa-project-diagram"></i></div>
+        <div class="servico-content">
+          <h3>Desenvolvimento do projeto com rigor de qualidade</h3>
+          <p>Cada etapa do projeto é conduzida com checklist de qualidade, assegurando eficiência e precisão.</p>
+        </div>
+      </div>
+
+      <div class="servico-item">
+        <div class="servico-icon"><i class="fas fa-check-circle"></i></div>
+        <div class="servico-content">
+          <h3>Revisão técnica especializada</h3>
+          <p>Revisamos todos os detalhes para garantir conformidade com normas e excelência técnica.</p>
+        </div>
+      </div>
+
+      <div class="servico-item">
+        <div class="servico-icon"><i class="fas fa-box-open"></i></div>
+        <div class="servico-content">
+          <h3>Entrega pronta para execução</h3>
+          <p>O projeto é entregue completo, pronto para ser aplicado na obra sem dúvidas ou retrabalhos.</p>
+        </div>
+      </div>
+
+      <div class="servico-item">
+        <div class="servico-icon"><i class="fas fa-bolt"></i></div>
+        <div class="servico-content">
+          <h3>Aprovação em Concessionárias</h3>
+          <p>Experiência em processos de aprovação junto às concessionárias de energia, incluindo adequações técnicas conforme normas locais.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= DIFERENCIAIS ================= -->
+<section class="diferenciais-sobre">
+  <div class="container">
+    <h2 class="section-title">Por que a Engevision?</h2>
+    <div class="diferenciais-grid">
+      <div class="diferencial-card">
+        <i class="fas fa-users diferencial-icon"></i>
+        <h3>Equipe Técnica Especializada</h3>
+        <p>Profissionais com experiência prática em projetos e obras, atuando conforme a complexidade de cada empreendimento.</p>
+      </div>
+      <div class="diferencial-card">
+        <i class="fas fa-search diferencial-icon"></i>
+        <h3>Nível de Detalhamento</h3>
+        <p>Projetos pensados para execução, reduzindo dúvidas em campo e retrabalhos.</p>
+      </div>
+      <div class="diferencial-card">
+        <i class="fas fa-shield-alt diferencial-icon"></i>
+        <h3>Normas e Conformidade</h3>
+        <p>Atuação conforme NR-10, NBR 5410 e normas das concessionárias de energia.</p>
+      </div>
+      <div class="diferencial-card">
+        <i class="fas fa-lightbulb diferencial-icon"></i>
+        <h3>Soluções Práticas e Eficientes</h3>
+        <p>Projetos pensados para aplicação direta na obra, garantindo economia de tempo e execução sem erros.</p>
+      </div>
+      <div class="diferencial-card">
+        <i class="fas fa-check-circle diferencial-icon"></i>
+        <h3>Controle de Qualidade</h3>
+        <p>Cada etapa do projeto é revisada e validada, assegurando precisão, segurança e confiabilidade.</p>
+      </div>
+      <div class="diferencial-card">
+        <i class="fas fa-file-alt diferencial-icon"></i>
+        <h3>Documentação Completa</h3>
+        <p>Entrega de todos os documentos técnicos, ARTs e relatórios necessários para aprovação e execução da obra.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA FINAL ================= -->
+<section class="cta-final">
+  <div class="container">
+    <div class="cta-quadro">
+      <h2 class="cta-title">Seu projeto elétrico precisa funcionar na obra</h2>
+      <p class="cta-subtitle">
+        Desenvolvemos engenharia elétrica com foco em execução, segurança e confiabilidade técnica. Entre em contato agora e tire suas dúvidas diretamente com nossa equipe.
+      </p>
+      <div class="center-btn">
+        <a href="https://wa.me/5511999999999" target="_blank" class="btn btn-large whatsapp-btn">
+          💬 Falar pelo WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ================= FOOTER ================= -->
 <footer class="footer">
   <div class="footer-container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <img src="images/logo.PNG" alt="EngeVision" class="footer-logo">
+        <img src="images/logo.PNG" alt="EngeVision Engenharia Elétrica" class="footer-logo">
         <p class="footer-slogan">Engineering the power behind the future</p>
       </div>
-
       <div class="footer-links">
         <h3>Links Rápidos</h3>
         <ul>
           <li><a href="index.html#quem-somos">Quem Somos</a></li>
-          <li><a href="index.html#atuacao">Atuação</a></li>
+          <li><a href="index.html#atuacao">Áreas de Atuação</a></li>
+          <li><a href="index.html#transicao">Transição Energética</a></li>
           <li><a href="index.html#contato">Contato</a></li>
         </ul>
       </div>
-
       <div class="footer-contact">
         <h3>Contato</h3>
         <p><i class="fas fa-map-marker-alt"></i> Itajubá - MG</p>
@@ -612,39 +1339,50 @@
       </div>
     </div>
 
+    <div class="footer-divider"></div>
+
     <div class="footer-bottom">
+      <div class="footer-social">
+        <a href="#" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="YouTube" target="_blank"><i class="fab fa-youtube"></i></a>
+      </div>
       <div class="copyright">
-        <p>© 2025 EngeVision Engenharia Elétrica.</p>
+        <p>© 2025 EngeVision Engenharia Elétrica e de Energia.</p>
+        <span>Todos os direitos reservados.</span>
       </div>
     </div>
   </div>
 </footer>
 
-<!-- WhatsApp -->
-<div class="whatsapp-float">
-  <a href="https://wa.me/5511999999999" target="_blank">
-    <img src="https://cdn-icons-png.flaticon.com/512/220/220236.png" alt="WhatsApp">
-  </a>
-</div>
-
-<!-- JS -->
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
+  // Menu hamburger
+  const hamburger = document.querySelector('.hamburger');
+  const navMenu = document.querySelector('.nav-menu');
 
-    hamburger.addEventListener('click', function() {
-      hamburger.classList.toggle('active');
-      navMenu.classList.toggle('active');
-    });
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navMenu.classList.toggle('active');
+  });
 
-    // Fechar menu ao clicar em um link
-    document.querySelectorAll('.nav-menu a').forEach(n => n.addEventListener('click', () => {
+  // Fechar menu ao clicar em um link
+  document.querySelectorAll('.nav-menu a').forEach(link => {
+    link.addEventListener('click', () => {
       hamburger.classList.remove('active');
       navMenu.classList.remove('active');
-    }));
+    });
+  });
+
+  // Dropdown no mobile
+  const dropdowns = document.querySelectorAll('.dropdown');
+  dropdowns.forEach(dropdown => {
+    dropdown.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        dropdown.classList.toggle('active');
+      }
+    });
   });
 </script>
-
 </body>
 </html>
