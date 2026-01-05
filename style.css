@@ -1188,11 +1188,11 @@ section {
 }
 
 /* ==============================
-   ENGENHARIA QUE ENTREGAMOS - LAYOUT HÍBRIDO
+   ENGENHARIA - O QUE ENTREGAMOS
 ================================ */
 .engenharia-entrega {
   padding: 100px 0;
-  background-color: var(--azul-escuro);
+  background-color: var(--azul-base);
   color: var(--branco);
 }
 
@@ -1210,120 +1210,90 @@ section {
   margin-bottom: 20px;
 }
 
-/* ITENS COM ÍCONES - estilo Escopo de Atuação */
-.engenharia-itens-icones {
+.engenharia-descricao {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 60px;
+}
+
+/* GRID DE ITENS 2x2 */
+.engenharia-itens {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+/* BLOCO DO ITEM */
+.engenharia-item {
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  margin-bottom: 60px;
-  max-width: 900px;
-}
-
-.engenharia-icone-item {
-  display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: 20px;
-  padding: 25px 20px;
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  border-left: 4px solid var(--amarelo);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  align-items: start;
-}
-
-.engenharia-icone-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-}
-
-.engenharia-icone-item i {
-  font-size: 2rem;
-  color: var(--amarelo);
-  display: flex;
   align-items: center;
-  justify-content: center;
-}
-
-.engenharia-icone-item p {
-  color: var(--cinza);
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin: 0;
-}
-
-.engenharia-icone-item strong {
-  color: var(--amarelo);
-  display: block;
-  margin-bottom: 8px;
-  font-weight: 600;
-}
-
-/* BLOCO 2x2 - imagem acima, texto abaixo */
-.engenharia-itens-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 40px;
-  margin-top: 60px;
-}
-
-.engenharia-item-card {
-  background: var(--azul-card);
-  border-radius: 8px;
-  overflow: hidden;
-  text-align: center;
+  gap: 20px;
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border: 1px solid rgba(255,255,255,0.05);
 }
 
-.engenharia-item-card:hover {
+.engenharia-item:hover {
   transform: translateY(-5px);
   box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-  border-color: var(--amarelo);
 }
 
-.engenharia-item-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-bottom: 1px solid rgba(255,255,255,0.1);
-  transition: transform 0.4s ease;
-}
-
-.engenharia-item-card:hover img {
-  transform: scale(1.05);
-}
-
-.engenharia-item-card .engenharia-item-texto {
-  padding: 20px;
+/* TEXTO DO ITEM */
+.engenharia-item-texto {
   text-align: center;
+  font-size: 1.1rem;
+  line-height: 1.7;
 }
 
-.engenharia-item-card .engenharia-item-texto strong {
+.engenharia-item-texto strong {
   display: block;
-  font-size: 1.3rem;
-  margin-bottom: 10px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
   color: var(--amarelo);
 }
 
-.engenharia-item-card .engenharia-item-texto p {
-  font-size: 1.1rem;
-  color: var(--cinza);
-  line-height: 1.6;
+/* IMAGEM DO ITEM */
+.engenharia-item-visual {
+  width: 100%;
+  max-width: 350px;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.engenharia-item-visual::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  background-color: var(--amarelo);
+  transition: width 0.4s ease;
+}
+
+.engenharia-item-visual:hover::before {
+  width: 100%;
+}
+
+.engenharia-item-visual img {
+  width: 100%;
+  border-radius: 6px;
 }
 
 /* RESPONSIVO */
 @media (max-width: 1024px) {
-  .engenharia-itens-icones {
-    gap: 20px;
-  }
-
-  .engenharia-icone-item {
-    grid-template-columns: 60px 1fr;
-    padding: 20px;
-  }
-
-  .engenharia-itens-cards {
+  .engenharia-itens {
     grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .engenharia-item-visual {
+    max-width: 100%;
   }
 }
 
@@ -2308,6 +2278,7 @@ section {
     max-width: 300px;
   }
 }
+
 
 
 
