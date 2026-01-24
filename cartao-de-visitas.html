@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <!-- Favicon usando a mesma logo -->
+  <link rel="icon" href="images/logo.PNG" type="image/png">
+  <title>Cartão de Visita Virtual | Engevis Engenharia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+        content="Cartão de visita digital da Engevis Engenharia Elétrica. Projetos elétricos, energia renovável e eficiência energética.">
+
+  <!-- Fonte -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* ==================================================================================
+       VARIÁVEIS GLOBAIS E ESTILOS BASE
+    ================================================================================== */
+    
+    /* ==============================
+       VARIÁVEIS DE IDENTIDADE
+    ================================ */
+    :root {
+      --azul-base: #0B1020;
+      --azul-tecnico: #1F4FD8;
+      --amarelo: #F2B705;
+      --amarelo-escuro: #D6A105;
+      --branco: #FFFFFF;
+      --cinza: #B0B6C3;
+      --cinza-escuro: #7A8192;
+      --azul-card: #11162b;
+      --azul-card-hover: #141a35;
+      --azul-escuro: #070B1A;
+    }
+
+    /* ==============================
+       RESET E BASE
+    ================================ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--azul-base);
+      color: var(--branco);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* ==============================
+       ANIMAÇÕES GLOBAIS
+    ================================ */
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    /* ==============================
+       CARTAO DE VISITA
+    ================================ */
+    .cartao-container {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+      animation: fadeUp 0.8s ease-out;
+    }
+
+    .cartao-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .cartao-logo {
+      width: 120px;
+      height: auto;
+      margin: 0 auto 20px;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .cartao-titulo {
+      font-size: 2.5rem;
+      color: var(--amarelo);
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .cartao-subtitulo {
+      font-size: 1.2rem;
+      color: var(--cinza);
+      margin-bottom: 30px;
+      font-weight: 500;
+    }
+
+    .cartao-slogan {
+      font-size: 1.1rem;
+      color: var(--amarelo);
+      font-style: italic;
+      border-top: 1px solid rgba(242, 183, 5, 0.3);
+      border-bottom: 1px solid rgba(242, 183, 5, 0.3);
+      padding: 15px 0;
+      margin: 0 auto;
+      max-width: 500px;
+    }
+
+    /* ==============================
+       CARTAO PRINCIPAL
+    ================================ */
+    .cartao-principal {
+      background: linear-gradient(145deg, var(--azul-card), var(--azul-escuro));
+      border-radius: 20px;
+      padding: 40px;
+      margin-bottom: 30px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(31, 79, 216, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cartao-principal::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--amarelo), var(--azul-tecnico));
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .info-coluna {
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .info-icone {
+      width: 50px;
+      height: 50px;
+      background-color: rgba(242, 183, 5, 0.1);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      border: 1px solid rgba(242, 183, 5, 0.2);
+    }
+
+    .info-icone i {
+      font-size: 1.5rem;
+      color: var(--amarelo);
+    }
+
+    .info-conteudo h3 {
+      font-size: 1.1rem;
+      color: var(--cinza);
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+
+    .info-conteudo p {
+      font-size: 1.2rem;
+      color: var(--branco);
+      font-weight: 500;
+    }
+
+    .info-conteudo a:hover {
+      color: var(--amarelo);
+    }
+
+    /* ==============================
+       SERVICOS
+    ================================ */
+    .servicos-container {
+      margin: 40px 0;
+    }
+
+    .servicos-titulo {
+      font-size: 1.8rem;
+      color: var(--branco);
+      text-align: center;
+      margin-bottom: 30px;
+      position: relative;
+      padding-bottom: 15px;
+    }
+
+    .servicos-titulo::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background-color: var(--amarelo);
+      border-radius: 2px;
+    }
+
+    .servicos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .servico-card {
+      background-color: var(--azul-card);
+      border-radius: 12px;
+      padding: 25px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .servico-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      border-color: var(--amarelo);
+    }
+
+    .servico-icone {
+      font-size: 2.5rem;
+      color: var(--amarelo);
+      margin-bottom: 15px;
+    }
+
+    .servico-card h4 {
+      font-size: 1.2rem;
+      margin-bottom: 10px;
+      color: var(--branco);
+    }
+
+    .servico-card p {
+      color: var(--cinza);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    /* ==============================
+       BOTOES DE CONTATO
+    ================================ */
+    .botoes-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: 40px 0;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 30px;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      font-size: 1rem;
+      min-width: 200px;
+    }
+
+    .btn-whatsapp {
+      background-color: #25D366;
+      color: white;
+    }
+
+    .btn-whatsapp:hover {
+      background-color: #1ebe5d;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+      animation: pulse 1s infinite;
+    }
+
+    .btn-email {
+      background-color: var(--azul-tecnico);
+      color: white;
+    }
+
+    .btn-email:hover {
+      background-color: #1a43c4;
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(31, 79, 216, 0.3);
+    }
+
+    .btn-site {
+      background-color: transparent;
+      color: var(--amarelo);
+      border: 2px solid var(--amarelo);
+    }
+
+    .btn-site:hover {
+      background-color: var(--amarelo);
+      color: var(--azul-base);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(242, 183, 5, 0.3);
+    }
+
+    /* ==============================
+       QR CODE E COMPARTILHAMENTO
+    ================================ */
+    .qrcode-container {
+      background-color: var(--azul-card);
+      border-radius: 15px;
+      padding: 30px;
+      text-align: center;
+      margin: 40px 0;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .qrcode-titulo {
+      font-size: 1.5rem;
+      color: var(--amarelo);
+      margin-bottom: 20px;
+    }
+
+    .qrcode-box {
+      display: inline-block;
+      background-color: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+
+    .qrcode-placeholder {
+      width: 180px;
+      height: 180px;
+      background-color: #f0f0f0;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #666;
+      font-size: 0.9rem;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .qrcode-instrucao {
+      color: var(--cinza);
+      font-size: 0.9rem;
+      max-width: 400px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+
+    /* ==============================
+       FOOTER DO CARTAO
+    ================================ */
+    .cartao-footer {
+      text-align: center;
+      padding: 30px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 40px;
+      width: 100%;
+    }
+
+    .footer-social {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+
+    .social-link {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: var(--azul-card);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .social-link:hover {
+      background-color: var(--amarelo);
+      transform: translateY(-5px);
+    }
+
+    .social-link i {
+      font-size: 1.3rem;
+      color: var(--branco);
+    }
+
+    .copyright {
+      color: var(--cinza);
+      font-size: 0.9rem;
+      margin-top: 20px;
+    }
+
+    /* ==============================
+       RESPONSIVIDADE
+    ================================ */
+    @media (max-width: 768px) {
+      .cartao-titulo {
+        font-size: 2rem;
+      }
+      
+      .cartao-principal {
+        padding: 30px 20px;
+      }
+      
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .servicos-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .botoes-container {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .btn {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+      }
+      
+      .cartao-titulo {
+        font-size: 1.8rem;
+      }
+      
+      .cartao-subtitulo {
+        font-size: 1rem;
+      }
+      
+      .info-item {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .info-icone {
+        margin: 0 auto;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+  <div class="cartao-container">
+    <!-- CABEÇALHO DO CARTÃO -->
+    <div class="cartao-header">
+      <img src="images/logo.PNG" alt="Engevis Engenharia Elétrica" class="cartao-logo">
+      <h1 class="cartao-titulo">Engevis Engenharia</h1>
+      <p class="cartao-subtitulo">Engenharia Elétrica e de Energia</p>
+      <div class="cartao-slogan">
+        "Engineering the power behind the future"
+      </div>
+    </div>
+
+    <!-- CARTÃO PRINCIPAL COM INFORMAÇÕES -->
+    <div class="cartao-principal">
+      <div class="info-grid">
+        <div class="info-coluna">
+          <!-- CONTATO -->
+          <div class="info-item">
+            <div class="info-icone">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="info-conteudo">
+              <h3>Engenheiro Responsável</h3>
+              <p>Eng. Vinícius Silva</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icone">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="info-conteudo">
+              <h3>Telefone</h3>
+              <p><a href="tel:+5535999165674">(35) 99916-5674</a></p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icone">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="info-conteudo">
+              <h3>E-mail</h3>
+              <p><a href="mailto:engevisengenharia@outlook.com">engevisengenharia@outlook.com</a></p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="info-coluna">
+          <!-- LOCALIZAÇÃO E OUTRAS INFOS -->
+          <div class="info-item">
+            <div class="info-icone">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div class="info-conteudo">
+              <h3>Localização</h3>
+              <p>Itajubá - MG</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icone">
+              <i class="fas fa-id-card"></i>
+            </div>
+            <div class="info-conteudo">
+              <h3>CREA/MG</h3>
+              <p>Engenheiro Eletricista</p>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icone">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <div class="info-conteudo">
+              <h3>Especialização</h3>
+              <p>Projetos e Execução Elétrica</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVIÇOS OFERECIDOS -->
+    <div class="servicos-container">
+      <h2 class="servicos-titulo">Nossos Serviços</h2>
+      <div class="servicos-grid">
+        <div class="servico-card">
+          <div class="servico-icone">
+            <i class="fas fa-drafting-compass"></i>
+          </div>
+          <h4>Projetos Elétricos</h4>
+          <p>Residenciais, comerciais e industriais com ART</p>
+        </div>
+        
+        <div class="servico-card">
+          <div class="servico-icone">
+            <i class="fas fa-solar-panel"></i>
+          </div>
+          <h4>Energia Renovável</h4>
+          <p>Sistemas fotovoltaicos e soluções sustentáveis</p>
+        </div>
+        
+        <div class="servico-card">
+          <div class="servico-icone">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h4>Eficiência Energética</h4>
+          <p>Auditoria e otimização do consumo de energia</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BOTÕES DE CONTATO -->
+    <div class="botoes-container">
+      <a href="https://wa.me/5535999165674" target="_blank" class="btn btn-whatsapp">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+      
+      <a href="mailto:engevisengenharia@outlook.com" class="btn btn-email">
+        <i class="fas fa-envelope"></i> E-mail
+      </a>
+      
+      <a href="index.html" class="btn btn-site">
+        <i class="fas fa-globe"></i> Site Oficial
+      </a>
+    </div>
+
+    <!-- QR CODE PARA COMPARTILHAMENTO -->
+    <div class="qrcode-container">
+      <h3 class="qrcode-titulo">Compartilhe este cartão</h3>
+      <div class="qrcode-box">
+        <div class="qrcode-placeholder">
+          <div>
+            <i class="fas fa-qrcode" style="font-size: 2rem; margin-bottom: 10px; color: #333;"></i>
+            <p>QR Code para compartilhamento do cartão digital</p>
+          </div>
+        </div>
+      </div>
+      <p class="qrcode-instrucao">
+        Aponte a câmera do seu celular para o QR Code acima para salvar este cartão de visita digital em seus contatos.
+      </p>
+    </div>
+
+    <!-- FOOTER COM REDES SOCIAIS -->
+    <div class="cartao-footer">
+      <div class="footer-social">
+        <a href="#" class="social-link" aria-label="LinkedIn" target="_blank">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="Instagram" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" class="social-link" aria-label="YouTube" target="_blank">
+          <i class="fab fa-youtube"></i>
+        </a>
+      </div>
+      
+      <div class="copyright">
+        <p>© 2026 Engevis Engenharia Elétrica e de Energia</p>
+        <p>Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Função para adicionar contato diretamente no celular
+    function addToContacts() {
+      const contactData = {
+        name: "Engevis Engenharia",
+        tel: "+5535999165674",
+        email: "engevisengenharia@outlook.com",
+        company: "Engevis Engenharia Elétrica",
+        jobTitle: "Engenharia Elétrica e de Energia",
+        url: window.location.href
+      };
+      
+      // Verifica se é um dispositivo móvel
+      if (/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        const vCard = `BEGIN:VCARD
+VERSION:3.0
+FN:${contactData.name}
+ORG:${contactData.company}
+TITLE:${contactData.jobTitle}
+TEL;TYPE=WORK,VOICE:${contactData.tel}
+EMAIL:${contactData.email}
+URL:${contactData.url}
+END:VCARD`;
+        
+        const blob = new Blob([vCard], { type: "text/vcard" });
+        const url = URL.createObjectURL(blob);
+        
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "engevis-contato.vcf";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        
+        alert("Contato da Engevis Engenharia adicionado aos seus contatos!");
+      } else {
+        alert("Para salvar o contato, acesse esta página em seu celular ou copie as informações manualmente.");
+      }
+    }
+    
+    // Adicionar funcionalidade de copiar informações
+    document.querySelectorAll('.info-conteudo p').forEach(element => {
+      element.addEventListener('click', function() {
+        const textToCopy = this.textContent;
+        navigator.clipboard.writeText(textToCopy).then(() => {
+          const originalText = this.textContent;
+          this.textContent = "Copiado!";
+          setTimeout(() => {
+            this.textContent = originalText;
+          }, 1500);
+        });
+      });
+    });
+    
+    // Animar elementos ao rolar
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = "1";
+          entry.target.style.transform = "translateY(0)";
+        }
+      });
+    }, observerOptions);
+    
+    // Observar elementos para animação
+    document.querySelectorAll('.servico-card, .info-item, .btn').forEach(el => {
+      el.style.opacity = "0";
+      el.style.transform = "translateY(20px)";
+      el.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
