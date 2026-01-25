@@ -13,9 +13,6 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- QR Code Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-
   <style>
     /* ==============================
        VARIÁVEIS E RESET
@@ -170,11 +167,43 @@
       color: var(--cinza-medio);
       font-style: italic;
       max-width: 320px;
-      margin: 20px auto 0;
+      margin: 20px auto 15px;
       padding: 12px 0;
       border-top: 1px solid rgba(242, 183, 5, 0.2);
       border-bottom: 1px solid rgba(242, 183, 5, 0.2);
       line-height: 1.5;
+    }
+
+    /* Redes Sociais no Cabeçalho */
+    .redes-cabecalho {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 15px;
+      margin-bottom: 10px;
+    }
+
+    .rede-cabecalho {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .rede-cabecalho:hover {
+      background: var(--ouro-corporativo);
+      transform: translateY(-3px) scale(1.1);
+      box-shadow: 0 6px 15px rgba(242, 183, 5, 0.2);
+    }
+
+    .rede-cabecalho i {
+      font-size: 1.1rem;
+      color: var(--branco-puro);
     }
 
     /* ==============================
@@ -548,73 +577,6 @@
     }
 
     /* ==============================
-       QR CODE CORPORATIVO
-    ================================ */
-    .qrcode-corporativo {
-      background: rgba(255, 255, 255, 0.03);
-      border-radius: 16px;
-      padding: 25px;
-      text-align: center;
-      margin: 25px 0;
-      border: 1px solid rgba(242, 183, 5, 0.1);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .qrcode-titulo {
-      font-size: 1.1rem;
-      color: var(--ouro-corporativo);
-      margin-bottom: 15px;
-      font-weight: 600;
-    }
-
-    #qrcode-real {
-      width: 160px;
-      height: 160px;
-      margin: 0 auto 15px;
-      padding: 10px;
-      background: white;
-      border-radius: 12px;
-      border: 2px solid var(--ouro-corporativo);
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-    }
-
-    #qrcode-real canvas {
-      width: 140px !important;
-      height: 140px !important;
-    }
-
-    .qrcode-descricao {
-      font-size: 0.8rem;
-      color: var(--cinza-medio);
-      line-height: 1.4;
-      max-width: 260px;
-      margin: 0 auto 12px;
-    }
-
-    #btn-download-contato {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin-top: 10px;
-      padding: 10px 20px;
-      background: linear-gradient(135deg, var(--ouro-corporativo), var(--ouro-escuro));
-      color: var(--azul-corporativo);
-      border: none;
-      border-radius: 10px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(242, 183, 5, 0.2);
-      font-size: 0.9rem;
-    }
-
-    #btn-download-contato:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 18px rgba(242, 183, 5, 0.3);
-    }
-
-    /* ==============================
        RODAPÉ CORPORATIVO
     ================================ */
     .rodape-corporativo {
@@ -623,36 +585,6 @@
       border-top: 1px solid rgba(255, 255, 255, 0.08);
       width: 100%;
       position: relative;
-    }
-
-    .redes-corporativas {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-bottom: 20px;
-    }
-
-    .rede-corporativa {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.05);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .rede-corporativa:hover {
-      background: var(--ouro-corporativo);
-      transform: translateY(-3px) scale(1.1);
-      box-shadow: 0 6px 15px rgba(242, 183, 5, 0.2);
-    }
-
-    .rede-corporativa i {
-      font-size: 1rem;
-      color: var(--branco-puro);
     }
 
     .direitos-corporativos {
@@ -763,19 +695,8 @@
         font-size: 0.95rem;
       }
       
-      #qrcode-real {
-        width: 140px;
-        height: 140px;
-      }
-      
-      #qrcode-real canvas {
-        width: 120px !important;
-        height: 120px !important;
-      }
-      
       .vitrine-projetos,
-      .especializacoes-corporativas,
-      .qrcode-corporativo {
+      .especializacoes-corporativas {
         padding: 20px 16px;
         margin: 20px 0;
       }
@@ -787,6 +708,15 @@
       .chip-corporativo {
         padding: 7px 12px;
         font-size: 0.75rem;
+      }
+      
+      .redes-cabecalho {
+        gap: 15px;
+      }
+      
+      .rede-cabecalho {
+        width: 36px;
+        height: 36px;
       }
     }
 
@@ -846,6 +776,16 @@
       <div class="slogan-empresa">
         Engineering the power behind the future
       </div>
+      
+      <!-- Redes Sociais no Cabeçalho -->
+      <div class="redes-cabecalho">
+        <a href="#" class="rede-cabecalho" aria-label="LinkedIn" target="_blank">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="#" class="rede-cabecalho" aria-label="Instagram" target="_blank">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
     </div>
 
     <!-- CARTAO CORPORATIVO -->
@@ -882,7 +822,7 @@
         
         <div class="projetos-grid">
           <!-- Projeto 1 - Residencial -->
-            <div class="projeto-card" onclick="window.open('https://engevisengenharia.github.io/projetos-eletricos.html', '_blank')">
+          <div class="projeto-card" onclick="window.open('https://engevisengenharia.github.io/projetos-eletricos.html', '_blank')">
             <div class="projeto-imagem" style="background: linear-gradient(135deg, #25D366 0%, #0A0F23 100%);">
               <i class="fas fa-home"></i>
               <span class="projeto-badge">Residencial</span>
@@ -913,7 +853,6 @@
               <h4>Sistema Elétrico Industrial</h4>
             </div>
           </div>
-
 
           <!-- Projeto 4 - Eficiência -->
           <div class="projeto-card" onclick="window.open('https://engevisengenharia.github.io/eficiencia.html', '_blank')">
@@ -994,7 +933,7 @@
             <i class="fas fa-chart-line"></i> Eficiência Energética
           </span>
           <span class="chip-corporativo">
-            <i class="fas fa-industry"></i> Execução Industrial
+            <i class="fas fa-industry"></i> Consultoria e Auditoria Industrial
           </span>
           <span class="chip-corporativo">
             <i class="fas fa-file-contract"></i> ART & Documentação
@@ -1010,38 +949,10 @@
           </span>
         </div>
       </div>
-
-      <!-- QR CODE -->
-      <div class="qrcode-corporativo">
-        <h3 class="qrcode-titulo">Salvar Contato Automático</h3>
-        
-        <div id="qrcode-real" class="floating pulse-gold"></div>
-        
-        <p class="qrcode-descricao">
-          Aponte a câmera do celular para salvar o contato automaticamente
-        </p>
-        
-        <button id="btn-download-contato">
-          <i class="fas fa-download"></i>
-          <span>Baixar Contato</span>
-        </button>
-      </div>
     </div>
 
     <!-- RODAPÉ -->
     <div class="rodape-corporativo">
-      <div class="redes-corporativas">
-        <a href="#" class="rede-corporativa" aria-label="LinkedIn" target="_blank">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-        <a href="#" class="rede-corporativa" aria-label="Instagram" target="_blank">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="#" class="rede-corporativa" aria-label="YouTube" target="_blank">
-          <i class="fab fa-youtube"></i>
-        </a>
-      </div>
-      
       <div class="direitos-corporativos">
         © 2026 Engevis Engenharia de Energia e Elétrica<br>
         <a href="https://engevisengenharia.github.io/" target="_blank">engevisengenharia.github.io</a>
@@ -1053,64 +964,6 @@
   <div class="mensagem-copiada" id="mensagemCopiada">Copiado para área de transferência!</div>
 
   <script>
-    // Gerar QR Code para vCard inline
-    function gerarQRCodeContatoInline() {
-      const vCardData = `BEGIN:VCARD
-VERSION:3.0
-N:Engevis;Engenharia;;;
-FN:Engevis Engenharia
-ORG:Engevis Engenharia de Energia e Elétrica
-TITLE:Energia Renovável e Engenharia Elétrica
-TEL;TYPE=WORK,VOICE:+5535999165674
-EMAIL;TYPE=WORK:engevisengenharia@outlook.com
-URL:https://engevisengenharia.github.io/
-ADR;TYPE=WORK:;;Itajubá;Minas Gerais;;;Brasil
-NOTE:Engineering the power behind the future
-END:VCARD`;
-      
-      const vCardUrl = `data:text/vcard;charset=utf-8,${encodeURIComponent(vCardData)}`;
-      
-      document.getElementById('qrcode-real').innerHTML = '';
-      
-      new QRCode(document.getElementById('qrcode-real'), {
-        text: vCardUrl,
-        width: 140,
-        height: 140,
-        colorDark: "#0A0F23",
-        colorLight: "#FFFFFF",
-        correctLevel: QRCode.CorrectLevel.H
-      });
-    }
-
-    // Função para criar e baixar vCard
-    function criarEDownloadVCard() {
-      const vCardContent = `BEGIN:VCARD
-VERSION:3.0
-FN:Engevis Engenharia
-ORG:Engevis Engenharia de Energia e Elétrica
-TITLE:Energia Renovável e Engenharia Elétrica
-TEL;TYPE=WORK,VOICE:+5535999165674
-EMAIL;TYPE=WORK:engevisengenharia@outlook.com
-URL:https://engevisengenharia.github.io/
-ADR;TYPE=WORK:;;Itajubá;Minas Gerais;;;Brasil
-NOTE:Engineering the power behind the future
-END:VCARD`;
-
-      const blob = new Blob([vCardContent], { type: 'text/vcard' });
-      const url = URL.createObjectURL(blob);
-      
-      const link = document.createElement('a');
-      link.href = url;
-      link.download = 'Engevis-Contato.vcf';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      URL.revokeObjectURL(url);
-    }
-
-    // Botão de download vCard
-    document.getElementById('btn-download-contato').addEventListener('click', criarEDownloadVCard);
-
     // Copiar informações com clique
     document.querySelectorAll('.info-conteudo a, .info-conteudo p').forEach(element => {
       element.style.cursor = 'pointer';
@@ -1181,8 +1034,6 @@ END:VCARD`;
 
     // Inicializar quando a página carregar
     window.addEventListener('DOMContentLoaded', () => {
-      gerarQRCodeContatoInline();
-      
       // Animação de entrada para o cabeçalho
       const elementosEntrada = document.querySelectorAll('.cabecalho-corporativo > *');
       elementosEntrada.forEach((el, index) => {
@@ -1203,8 +1054,3 @@ END:VCARD`;
   </script>
 </body>
 </html>
-
-
-
-
-
